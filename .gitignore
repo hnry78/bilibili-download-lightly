@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# 虚拟环境
+venv/
+.env/
+
+# 下载内容
+downloads/
+
+# 个人配置（请勿提交你的 Cookie）
+cookies.txt
+*.cookies.txt
+
+# 调试记录
+command.txt
+
+# 大文件二进制（用户需自行安装 ffmpeg）
+ffmpeg/
+*.exe
+*.dll
+
+# 操作系统
+Thumbs.db
+.DS_Store
