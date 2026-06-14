@@ -27,8 +27,8 @@
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/hnry78/bilibili-light-downloader.git
-cd bilibili-light-downloader
+git clone https://github.com/hnry78/bilibili-download-lightly.git
+cd bilibili-download-lightly
 
 # 2. 创建虚拟环境（推荐）
 python -m venv venv

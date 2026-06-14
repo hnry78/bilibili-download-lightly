@@ -27,8 +27,8 @@ A lightweight Bilibili video downloader — no more struggling with the mobile a
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/hnry78/bilibili-light-downloader.git
-cd bilibili-light-downloader
+git clone https://github.com/hnry78/bilibili-download-lightly.git
+cd bilibili-download-lightly
 
 # 2. Create a virtual environment (recommended)
 python -m venv venv
