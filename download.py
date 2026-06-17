@@ -13,6 +13,8 @@ import re
 import subprocess
 import sys
 
+from ffmpeg_downloader import ensure_ffmpeg
+
 # Windows 终端 GBK 编码适配（支持 emoji 输出）
 if sys.stdout.encoding and sys.stdout.encoding.upper() != "UTF-8":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
@@ -37,24 +39,8 @@ def resolve_youget():
 
 
 def resolve_ffmpeg():
-    """找到可用的 ffmpeg，优先检查系统 PATH，再检查项目目录"""
-    # 1. 优先查系统 PATH（用户自己安装的 ffmpeg）
-    try:
-        subprocess.run(["ffmpeg", "-version"], capture_output=True, check=True)
-        return None  # None 表示用系统 PATH
-    except (FileNotFoundError, subprocess.CalledProcessError):
-        pass
-
-    # 2. 回退到项目中的 ffmpeg
-    ffmpeg_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ffmpeg")
-    candidates = [
-        os.path.join(ffmpeg_dir, "ffmpeg.exe"),
-        os.path.join(ffmpeg_dir, "bin", "ffmpeg.exe"),
-    ]
-    for path in candidates:
-        if os.path.isfile(path):
-            return os.path.dirname(path)
-    return None
+    """找到可用的 ffmpeg，如果未找到则自动下载到项目目录。"""
+    return ensure_ffmpeg()
 
 
 def clean_url(raw_url: str) -> str:
