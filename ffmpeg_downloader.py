@@ -59,9 +59,9 @@ def _download_with_progress(url: str, dest: str):
                 )
                 sys.stdout.flush()
 
-    print("⏬ 正在下载 ffmpeg（约 50MB）...")
+    print("正在下载 ffmpeg（约 50MB）...")
     urllib.request.urlretrieve(url, dest, report)
-    print("\n✅ 下载完成")
+    print("\n下载完成")
 
 
 def download_ffmpeg() -> str | None:
